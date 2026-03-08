@@ -39,21 +39,20 @@ UIScene_MainMenu::UIScene_MainMenu(int iPad, void *initData, UILayer *parentLaye
 	if(!ProfileManager.IsFullVersion()) m_buttons[(int)eControl_PlayGame].setLabel(IDS_PLAY_TRIAL_GAME);
 	app.SetReachedMainMenu();
 #endif
-	m_buttons[(int)eControl_Achievements].init( (UIString)IDS_MINI_GAMES,eControl_Achievements);
+
 	m_buttons[(int)eControl_Leaderboards].init(IDS_LEADERBOARDS,eControl_Leaderboards);
+	m_buttons[(int)eControl_Achievements].init( (UIString)IDS_ACHIEVEMENTS,eControl_Achievements);
 	m_buttons[(int)eControl_HelpAndOptions].init(IDS_HELP_AND_OPTIONS,eControl_HelpAndOptions);
-
-if(ProfileManager.IsFullVersion())
-{
-    m_bTrialVersion=false;
-    m_buttons[(int)eControl_UnlockOrDLC].init(IDS_DOWNLOADABLECONTENT,eControl_UnlockOrDLC);
-}
-else
-{
-    m_bTrialVersion=true;
-    m_buttons[(int)eControl_UnlockOrDLC].init(IDS_UNLOCK_FULL_GAME,eControl_UnlockOrDLC);
-}
-
+	if(ProfileManager.IsFullVersion())
+	{
+		m_bTrialVersion=false;
+		m_buttons[(int)eControl_UnlockOrDLC].init(IDS_DOWNLOADABLECONTENT,eControl_UnlockOrDLC);
+	}
+	else
+	{
+		m_bTrialVersion=true;
+		m_buttons[(int)eControl_UnlockOrDLC].init(IDS_UNLOCK_FULL_GAME,eControl_UnlockOrDLC);
+	}
 
 #ifndef _DURANGO
 	m_buttons[(int)eControl_Exit].init(app.GetString(IDS_EXIT_GAME),eControl_Exit);
@@ -75,6 +74,7 @@ else
 	//removeControl( &m_buttons[(int)eControl_Exit], false );
 	m_bWaitingForDLCInfo=false;
 #endif
+
 	doHorizontalResizeCheck();
 
 	m_splash = L"";

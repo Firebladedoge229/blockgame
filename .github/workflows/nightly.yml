@@ -25,6 +25,11 @@ jobs:
     - name: Build
       run: MSBuild.exe MinecraftConsoles.sln /p:Configuration=Release /p:Platform="Windows64"
 
+    - name: Copy required DLLs
+      run: |
+        copy .\x64\Debug\iggy_w64.dll .\x64\Release\
+        copy .\x64\Debug\mss64.dll .\x64\Release\
+
     - name: Zip Build
       run: 7z a -r LCEWindows64.zip ./x64/Release/*
 

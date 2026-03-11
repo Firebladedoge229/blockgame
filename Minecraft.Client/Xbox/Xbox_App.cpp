@@ -102,7 +102,6 @@
 #include "..\..\Minecraft.World\LevelSettings.h"
 #include "..\User.h"
 
-#include "Sentient\SentientManager.h"
 #include "..\..\Minecraft.World\LevelData.h"
 #include "..\..\Minecraft.World\net.minecraft.world.entity.player.h"
 #include "..\..\Minecraft.Client\EntityRenderDispatcher.h"

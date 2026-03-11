@@ -108,7 +108,6 @@ void UIScene_DeathMenu::handlePress(F64 controlId, F64 childId)
 					{
 						playTime = (int)pMinecraft->localplayers[m_iPad]->getSessionTimer();
 					}
-					TelemetryManager->RecordLevelExit(m_iPad, eSen_LevelExitStatus_Failed);
 					
 #if defined (_XBOX_ONE) || defined(__ORBIS__)
 					if(g_NetworkManager.IsHost() && StorageManager.GetSaveDisabled())
@@ -155,8 +154,6 @@ void UIScene_DeathMenu::handlePress(F64 controlId, F64 childId)
 				}
 				else
 				{
-					TelemetryManager->RecordLevelExit(m_iPad, eSen_LevelExitStatus_Failed);
-					
 					// just exit the player
 					app.SetAction(m_iPad,eAppAction_ExitPlayer);
 				}		
@@ -166,8 +163,6 @@ void UIScene_DeathMenu::handlePress(F64 controlId, F64 childId)
 				// is it the primary player exiting?
 				if(m_iPad==ProfileManager.GetPrimaryPad())
 				{
-					TelemetryManager->RecordLevelExit(m_iPad, eSen_LevelExitStatus_Failed);
-					
 					// adjust the trial time played
 					ui.ReduceTrialTimerValue();
 
@@ -179,8 +174,6 @@ void UIScene_DeathMenu::handlePress(F64 controlId, F64 childId)
 				}
 				else
 				{
-					TelemetryManager->RecordLevelExit(m_iPad, eSen_LevelExitStatus_Failed);
-
 					// just exit the player
 					app.SetAction(m_iPad,eAppAction_ExitPlayer);
 				}

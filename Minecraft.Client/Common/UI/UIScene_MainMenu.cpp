@@ -1847,7 +1847,6 @@ void UIScene_MainMenu::RunUnlockOrDLC(int iPad)
 			m_bLaunchFullVersionPurchase=true;
 
 #else
-			TelemetryManager->RecordUpsellPresented(iPad, eSen_UpsellID_Full_Version_Of_Game, app.m_dwOfferID);
 			ProfileManager.DisplayFullVersionPurchase(false,iPad,eSen_UpsellID_Full_Version_Of_Game);
 #endif
 		}
@@ -1934,7 +1933,6 @@ void UIScene_MainMenu::tick()
 			}
 			else
 			{
-				TelemetryManager->RecordUpsellPresented(ProfileManager.GetPrimaryPad(), eSen_UpsellID_Full_Version_Of_Game, app.m_dwOfferID);
 				ProfileManager.DisplayFullVersionPurchase(false,ProfileManager.GetPrimaryPad(),eSen_UpsellID_Full_Version_Of_Game);
 			}
 		}

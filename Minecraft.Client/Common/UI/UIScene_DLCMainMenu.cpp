@@ -50,8 +50,6 @@ UIScene_DLCMainMenu::UIScene_DLCMainMenu(int iPad, void *initData, UILayer *pare
 	// we also need to mount the local DLC so we can tell what's been purchased
 	app.StartInstallDLCProcess(iPad);
 #endif
-	
-	TelemetryManager->RecordMenuShown(iPad, eUIScene_DLCMainMenu, 0);
 
 #if defined __ORBIS__ || defined __PSVITA__
 	app.GetCommerce()->ShowPsStoreIcon();

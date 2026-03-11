@@ -406,9 +406,7 @@ bool	CGameNetworkManager::StartNetworkGame(Minecraft *minecraft, LPVOID lpParame
 	}
 	else
 	{
-		// 4J Stu - Host needs to generate a unique multiplayer id for sentient telemetry reporting
-		INT multiplayerInstanceId = TelemetryManager->GenerateMultiplayerInstanceId();
-		TelemetryManager->SetMultiplayerInstanceId(multiplayerInstanceId);
+		// intentionally left empty
 	}
 	TexturePack *tPack = Minecraft::GetInstance()->skins->getSelected();
 	do
@@ -1575,10 +1573,6 @@ void CGameNetworkManager::PlayerJoining( INetworkPlayer *pNetworkPlayer )
 		}
 	}
 
-    if( pNetworkPlayer->IsLocal() )
-    {
-		TelemetryManager->RecordPlayerSessionStart(pNetworkPlayer->GetUserIndex());
-    }
 #ifdef _XBOX
     else
     {
@@ -1588,7 +1582,7 @@ void CGameNetworkManager::PlayerJoining( INetworkPlayer *pNetworkPlayer )
 			{
 				if(Minecraft::GetInstance()->localplayers[idx] != NULL)
 				{
-					TelemetryManager->RecordLevelStart(idx, eSen_FriendOrMatch_Playing_With_Invited_Friends, eSen_CompeteOrCoop_Coop_and_Competitive, Minecraft::GetInstance()->level->difficulty, app.GetLocalPlayerCount(), g_NetworkManager.GetOnlinePlayerCount());
+					g_NetworkManager.GetOnlinePlayerCount());
 				}
 			}
         }
@@ -1602,7 +1596,6 @@ void CGameNetworkManager::PlayerLeaving( INetworkPlayer *pNetworkPlayer )
 	{
 		ProfileManager.SetCurrentGameActivity(pNetworkPlayer->GetUserIndex(),CONTEXT_PRESENCE_IDLE,false);
 
-		TelemetryManager->RecordPlayerSessionExit(pNetworkPlayer->GetUserIndex(), app.GetDisconnectReason());
 	}
 #ifdef _XBOX
 	else
@@ -1611,7 +1604,7 @@ void CGameNetworkManager::PlayerLeaving( INetworkPlayer *pNetworkPlayer )
 		{
 			if(Minecraft::GetInstance()->localplayers[idx] != NULL)
 			{
-				TelemetryManager->RecordLevelStart(idx, eSen_FriendOrMatch_Playing_With_Invited_Friends, eSen_CompeteOrCoop_Coop_and_Competitive, Minecraft::GetInstance()->level->difficulty, app.GetLocalPlayerCount(), g_NetworkManager.GetOnlinePlayerCount());
+				g_NetworkManager.GetOnlinePlayerCount());
 			}
 		}
 	}

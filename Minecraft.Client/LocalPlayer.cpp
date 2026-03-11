@@ -756,7 +756,6 @@ void LocalPlayer::hurtTo(float newHealth, ETelemetryChallenges damageSource)
 	{
 		int deathTime = (int)(level->getGameTime() % Level::TICKS_PER_DAY)/1000;
 		int carriedId = inventory->getSelected() == NULL ? 0 : inventory->getSelected()->id;
-		TelemetryManager->RecordPlayerDiedOrFailed(GetXboxPad(), 0, y, 0, 0, carriedId, 0, damageSource);
 
 		// if there are any xuiscenes up for this player, close them
 		if(ui.GetMenuDisplayed(GetXboxPad()))
@@ -817,9 +816,6 @@ void LocalPlayer::awardStat(Stat *stat, byteArray param)
 			// This causes some extreme flooding of some awards
 			if(ProfileManager.CanBeAwarded(m_iPad, ach->getAchievementID() ) )
 			{
-				// 4J Stu - We don't (currently) care about the gamerscore, so setting to a default of 0 points
-				TelemetryManager->RecordAchievementUnlocked(m_iPad,ach->getAchievementID(),0);
-
 				// 4J Stu - Some awards cause a menu to popup. This can be bad, especially if you are surrounded by mobs!
 				// We cannot pause the game unless in offline single player, but lets at least do it then
 				if( g_NetworkManager.IsLocalGame() && g_NetworkManager.GetPlayerCount() == 1 && ProfileManager.GetAwardType(ach->getAchievementID() ) != eAwardType_Achievement )

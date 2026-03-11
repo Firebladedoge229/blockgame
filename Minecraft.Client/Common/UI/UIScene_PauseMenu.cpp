@@ -97,9 +97,6 @@ UIScene_PauseMenu::UIScene_PauseMenu(int iPad, void *initData, UILayer *parentLa
 		app.SetXuiServerAction(ProfileManager.GetPrimaryPad(),eXuiServerAction_PauseServer,(void *)TRUE);
 	}
 
-	TelemetryManager->RecordMenuShown(m_iPad, eUIScene_PauseMenu, 0);
-	TelemetryManager->RecordPauseOrInactive(m_iPad);
-
 	Minecraft *pMinecraft = Minecraft::GetInstance();
 	if(pMinecraft != NULL && pMinecraft->localgameModes[iPad] != NULL )
 	{
@@ -728,9 +725,6 @@ void UIScene_PauseMenu::handlePress(F64 controlId, F64 childId)
 						playTime = (int)pMinecraft->localplayers[m_iPad]->getSessionTimer();
 					}
 
-					TelemetryManager->RecordLevelExit(m_iPad, eSen_LevelExitStatus_Exited);
-
-
 					// just exit the player
 					app.SetAction(m_iPad,eAppAction_ExitPlayer);
 				}		
@@ -763,8 +757,6 @@ void UIScene_PauseMenu::handlePress(F64 controlId, F64 childId)
 					{
 						playTime = (int)pMinecraft->localplayers[m_iPad]->getSessionTimer();
 					}
-
-					TelemetryManager->RecordLevelExit(m_iPad, eSen_LevelExitStatus_Exited);
 
 					// just exit the player
 					app.SetAction(m_iPad,eAppAction_ExitPlayer);
@@ -852,9 +844,6 @@ void UIScene_PauseMenu::PerformActionSaveGame()
 			DLCTexturePack *pDLCTexPack=(DLCTexturePack *)tPack;
 
 			app.GetDLCFullOfferIDForPackID(pDLCTexPack->getDLCParentPackId(),&ullOfferID_Full);
-
-			// tell sentient about the upsell of the full version of the texture pack
-			TelemetryManager->RecordUpsellPresented(m_iPad, eSet_UpsellID_Texture_DLC, ullOfferID_Full & 0xFFFFFFFF);
 #endif
 			UINT uiIDA[2];
 			uiIDA[0]=IDS_CONFIRM_OK;
@@ -1372,8 +1361,6 @@ int UIScene_PauseMenu::ExitGameSaveDialogReturned(void *pParam,int iPad,C4JStora
 
 					app.GetDLCFullOfferIDForPackID(pDLCTexPack->getDLCParentPackId(),&ullOfferID_Full);
 
-					// tell sentient about the upsell of the full version of the skin pack
-					TelemetryManager->RecordUpsellPresented(iPad, eSet_UpsellID_Texture_DLC, ullOfferID_Full & 0xFFFFFFFF);
 #endif
 
 					UINT uiIDA[2];

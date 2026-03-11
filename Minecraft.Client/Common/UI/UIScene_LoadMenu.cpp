@@ -260,7 +260,6 @@ UIScene_LoadMenu::UIScene_LoadMenu(int iPad, void *initData, UILayer *parentLaye
 #endif
 	}
 
-	TelemetryManager->RecordMenuShown(m_iPad, eUIScene_LoadMenu, 0);
 	m_iTexturePacksNotInstalled=0;
 
 	// block input if we're waiting for DLC to install, and wipe the saves list. The end of dlc mounting custom message will fill the list again
@@ -785,8 +784,6 @@ void UIScene_LoadMenu::StartSharedLaunchFlow()
 			// tell sentient about the upsell of the full version of the skin pack
 			ULONGLONG ullOfferID_Full;
 			app.GetDLCFullOfferIDForPackID(m_MoreOptionsParams.dwTexturePack,&ullOfferID_Full);
-
-			TelemetryManager->RecordUpsellPresented(ProfileManager.GetPrimaryPad(), eSet_UpsellID_Texture_DLC, ullOfferID_Full & 0xFFFFFFFF);
 #endif
 
 			UINT uiIDA[2];
@@ -858,8 +855,6 @@ void UIScene_LoadMenu::StartSharedLaunchFlow()
 					ullOfferID_Full=pTexturePack->getDLCPack()->getPurchaseOfferId();
 				}
 
-				// tell sentient about the upsell of the full version of the texture pack
-				TelemetryManager->RecordUpsellPresented(m_iPad, eSet_UpsellID_Texture_DLC, ullOfferID_Full & 0xFFFFFFFF);
 #endif
 
 #if defined(_WINDOWS64) || defined(_DURANGO)
@@ -1558,7 +1553,7 @@ void UIScene_LoadMenu::StartGameFromSave(UIScene_LoadMenu* pClass, DWORD dwLocal
 	{
 		INT saveOrCheckpointId = 0;
 		bool validSave = StorageManager.GetSaveUniqueNumber(&saveOrCheckpointId);
-		TelemetryManager->RecordLevelResume(pClass->m_iPad, eSen_FriendOrMatch_Playing_With_Invited_Friends, eSen_CompeteOrCoop_Coop_and_Competitive, app.GetGameSettings(pClass->m_iPad,eGameSetting_Difficulty), app.GetLocalPlayerCount(), g_NetworkManager.GetOnlinePlayerCount(), saveOrCheckpointId);
+		g_NetworkManager.GetOnlinePlayerCount(), saveOrCheckpointId);
 	}
 	else
 	{		

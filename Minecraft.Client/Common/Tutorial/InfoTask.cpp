@@ -137,6 +137,5 @@ void InfoTask::sendTelemetry()
 			tutorial->setCompleted( eTutorial_Telemetry_Complete );
 			break;
 		};
-		TelemetryManager->RecordEnemyKilledOrOvercome(pMinecraft->player->GetXboxPad(), 0, 0, 0, 0, 0, 0, m_eTelemetryEvent);
 	}
 }

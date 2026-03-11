@@ -109,7 +109,6 @@ HRESULT CScene_Death::OnNotifyPressEx(HXUIOBJ hObjPressed, XUINotifyPress* pNoti
 					{
 						playTime = (int)pMinecraft->localplayers[pNotifyPressData->UserIndex]->getSessionTimer();
 					}
-					TelemetryManager->RecordLevelExit(pNotifyPressData->UserIndex, eSen_LevelExitStatus_Failed);
 					
 					if(StorageManager.GetSaveDisabled())
 					{
@@ -138,8 +137,6 @@ HRESULT CScene_Death::OnNotifyPressEx(HXUIOBJ hObjPressed, XUINotifyPress* pNoti
 				}
 				else
 				{
-					TelemetryManager->RecordLevelExit(pNotifyPressData->UserIndex, eSen_LevelExitStatus_Failed);
-					
 					// just exit the player
 					app.SetAction(pNotifyPressData->UserIndex,eAppAction_ExitPlayer);
 				}		
@@ -149,8 +146,6 @@ HRESULT CScene_Death::OnNotifyPressEx(HXUIOBJ hObjPressed, XUINotifyPress* pNoti
 				// is it the primary player exiting?
 				if(pNotifyPressData->UserIndex==ProfileManager.GetPrimaryPad())
 				{
-					TelemetryManager->RecordLevelExit(pNotifyPressData->UserIndex, eSen_LevelExitStatus_Failed);
-					
 					// adjust the trial time played
 					CXuiSceneBase::ReduceTrialTimerValue();
 
@@ -162,8 +157,6 @@ HRESULT CScene_Death::OnNotifyPressEx(HXUIOBJ hObjPressed, XUINotifyPress* pNoti
 				}
 				else
 				{
-					TelemetryManager->RecordLevelExit(pNotifyPressData->UserIndex, eSen_LevelExitStatus_Failed);
-
 					// just exit the player
 					app.SetAction(pNotifyPressData->UserIndex,eAppAction_ExitPlayer);
 				}

@@ -1771,8 +1771,6 @@ void UIScene_LoadOrJoinMenu::CheckAndJoinGame(int gameIndex)
 #ifdef _XBOX
 				ULONGLONG ullOfferID_Full;
 				app.GetDLCFullOfferIDForPackID(m_initData->selectedSession->data.texturePackParentId,&ullOfferID_Full);
-
-				TelemetryManager->RecordUpsellPresented(m_iPad, eSet_UpsellID_Texture_DLC, ullOfferID_Full & 0xFFFFFFFF);
 #endif
 				UINT uiIDA[2];
 

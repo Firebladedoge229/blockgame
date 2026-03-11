@@ -155,9 +155,6 @@ HRESULT UIScene_PauseMenu::OnInit( XUIMessageInit* pInitData, BOOL& bHandled )
 		app.SetXuiServerAction(ProfileManager.GetPrimaryPad(),eXuiServerAction_PauseServer,(void *)TRUE);
 	}
 
-	TelemetryManager->RecordMenuShown(m_iPad, eUIScene_PauseMenu, 0);
-	TelemetryManager->RecordPauseOrInactive(m_iPad);
-
 	return S_OK;
 }
 
@@ -260,9 +257,6 @@ HRESULT UIScene_PauseMenu::OnNotifyPressEx(HXUIOBJ hObjPressed, XUINotifyPress* 
 					
 					app.GetDLCFullOfferIDForPackID(pDLCTexPack->getDLCParentPackId(),&ullOfferID_Full);
 
-					// tell sentient about the upsell of the full version of the texture pack
-					TelemetryManager->RecordUpsellPresented(pNotifyPressData->UserIndex, eSet_UpsellID_Texture_DLC, ullOfferID_Full & 0xFFFFFFFF);
-
 					UINT uiIDA[2];
 					uiIDA[0]=IDS_CONFIRM_OK;
 					uiIDA[1]=IDS_CONFIRM_CANCEL;
@@ -362,9 +356,6 @@ HRESULT UIScene_PauseMenu::OnNotifyPressEx(HXUIOBJ hObjPressed, XUINotifyPress* 
 						playTime = (int)pMinecraft->localplayers[pNotifyPressData->UserIndex]->getSessionTimer();
 					}
 
-					TelemetryManager->RecordLevelExit(pNotifyPressData->UserIndex, eSen_LevelExitStatus_Exited);
-
-					
 					// just exit the player
 					app.SetAction(pNotifyPressData->UserIndex,eAppAction_ExitPlayer);
 				}		
@@ -396,8 +387,6 @@ HRESULT UIScene_PauseMenu::OnNotifyPressEx(HXUIOBJ hObjPressed, XUINotifyPress* 
 					{
 						playTime = (int)pMinecraft->localplayers[pNotifyPressData->UserIndex]->getSessionTimer();
 					}
-
-					TelemetryManager->RecordLevelExit(pNotifyPressData->UserIndex, eSen_LevelExitStatus_Exited);
 
 					// just exit the player
 					app.SetAction(pNotifyPressData->UserIndex,eAppAction_ExitPlayer);
@@ -698,7 +687,6 @@ HRESULT UIScene_PauseMenu::OnTimer(XUIMessageTimer *pData,BOOL& rfHandled)
 HRESULT UIScene_PauseMenu::OnDestroy()
 {
 	//XBackgroundDownloadSetMode(XBACKGROUND_DOWNLOAD_MODE_AUTO);
-	TelemetryManager->RecordUnpauseOrActive(m_iPad);
 
 	if( m_iPad == ProfileManager.GetPrimaryPad() && g_NetworkManager.IsLocalGame() )
 	{
@@ -795,7 +783,7 @@ int UIScene_PauseMenu::WarningTrialTexturePackReturned(void *pParam,int iPad,C4J
 	}
 	else
 	{
-		TelemetryManager->RecordUpsellResponded(iPad, eSet_UpsellID_Texture_DLC, ( pScene->m_pDLCPack->getPurchaseOfferId() & 0xFFFFFFFF ), eSen_UpsellOutcome_Declined);
+		// intentionally left empty
 	}
 
 
@@ -828,8 +816,6 @@ int UIScene_PauseMenu::ExitGameSaveDialogReturned(void *pParam,int iPad,C4JStora
 
 					app.GetDLCFullOfferIDForPackID(pDLCTexPack->getDLCParentPackId(),&ullOfferID_Full);
 
-					// tell sentient about the upsell of the full version of the skin pack
-					TelemetryManager->RecordUpsellPresented(iPad, eSet_UpsellID_Texture_DLC, ullOfferID_Full & 0xFFFFFFFF);
 #endif
 
 					UINT uiIDA[2];
@@ -1190,8 +1176,6 @@ void UIScene_PauseMenu::_ExitWorld(LPVOID lpParameter)
 		Sleep(1);
 	}
 	pMinecraft->setLevel(NULL,exitReasonStringId,nullptr,saveStats);
-
-	TelemetryManager->Flush();
 
 	app.m_gameRules.unloadCurrentGameRules();
 	//app.m_Audio.unloadCurrentAudioDetails();

@@ -537,8 +537,6 @@ void UIScene_SkinSelectMenu::InputActionOK(unsigned int iPad)
 							ullOfferID_Full=m_currentPack->getPurchaseOfferId();
 						}
 
-						// tell sentient about the upsell of the full version of the skin pack
-						SentientManager.RecordUpsellPresented(iPad, eSet_UpsellID_Skin_DLC, ullOfferID_Full & 0xFFFFFFFF);
 #endif
 						bool bContentRestricted=false;
 #if defined(__PS3__) || defined(__PSVITA__)

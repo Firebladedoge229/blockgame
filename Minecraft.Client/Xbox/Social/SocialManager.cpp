@@ -9,7 +9,6 @@
 #include "SocialManager.h"
 #include <assert.h>
 #include <xgraphics.h>
-#include "..\Sentient\SentientManager.h"
 
 ///////////////////////////////////////////////////////////////////////////
 // Constants.
@@ -141,8 +140,6 @@ void CSocialManager::Tick()
 				switch( dwResult )
 				{
 					case ERROR_SUCCESS:
-						TelemetryManager->RecordMediaShareUpload(m_dwCurrRequestUser, ESen_MediaDestination_Facebook, eSen_MediaType_Picture);
-
 						app.DebugPrintf( "Facebook image post success!!!\n" );
 						DestroyMainPostImage();
 						DestroyPreviewPostImage();

@@ -86,7 +86,6 @@ HRESULT CScene_DLCMain::OnInit( XUIMessageInit* pInitData, BOOL& bHandled )
 	}
 
 	XuiElementInitUserFocus(xList, ProfileManager.GetPrimaryPad(), TRUE);
-	TelemetryManager->RecordMenuShown(iPad, eUIScene_DLCMainMenu, 0); // 4J JEV ?
 
 	return S_OK;
 }
@@ -230,7 +229,6 @@ HRESULT CScene_DLCOffers::OnInit( XUIMessageInit* pInitData, BOOL& bHandled )
 	m_bAllDLCContentRetrieved=false;
 
 	XuiElementInitUserFocus(m_hObj,ProfileManager.GetPrimaryPad(),TRUE);
-	TelemetryManager->RecordMenuShown(m_iPad, eUIScene_DLCOffersMenu, 0);
 	ui.SetTooltips( DEFAULT_XUI_MENU_USER, -1,IDS_TOOLTIPS_BACK);
 
 	// Disable the price tag display

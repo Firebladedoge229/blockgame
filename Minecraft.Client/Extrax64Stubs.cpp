@@ -4,35 +4,26 @@
 #endif // __PS3__
 
 #ifdef __PS3__
-#include "PS3\Sentient\SentientManager.h"
 #include "StatsCounter.h"
 #include "PS3\Social\SocialManager.h"
 #include <libsn.h>
 #include <libsntuner.h>
 #elif defined _DURANGO
-#include "Durango\Sentient\SentientManager.h"
 #include "StatsCounter.h"
 #include "Durango\Social\SocialManager.h"
-#include "Durango\Sentient\DynamicConfigurations.h"
 #include "Durango\DurangoExtras\xcompress.h"
 #elif defined _WINDOWS64
-#include "Windows64\Sentient\SentientManager.h"
 #include "StatsCounter.h"
 #include "Windows64\Social\SocialManager.h"
-#include "Windows64\Sentient\DynamicConfigurations.h"
 #include "Windows64\Network\WinsockNetLayer.h"
 #include "Windows64\Windows64_Xuid.h"
 #elif defined __PSVITA__
-#include "PSVita\Sentient\SentientManager.h"
 #include "StatsCounter.h"
 #include "PSVita\Social\SocialManager.h"
-#include "PSVita\Sentient\DynamicConfigurations.h"
 #include <libperf.h>
 #else
-#include "Orbis\Sentient\SentientManager.h"
 #include "StatsCounter.h"
 #include "Orbis\Social\SocialManager.h"
-#include "Orbis\Sentient\DynamicConfigurations.h"
 #include <perf.h>
 #endif
 
@@ -42,7 +33,6 @@
 C_4JProfile ProfileManager;
 #endif
 #endif // __PS3__
-CSentientManager SentientManager;
 CXuiStringTable StringTable;
 
 #ifndef _XBOX_ONE
@@ -750,36 +740,6 @@ C4JStorage::ETMSStatus				C4JStorage::TMSPP_ReadFile(int iPad, C4JStorage::eGlob
 #endif // _WINDOWS64
 
 #endif // __PS3__
-
-/////////////////////////////////////////////////////// Sentient manager
-
-HRESULT CSentientManager::Init() { return S_OK; }
-HRESULT CSentientManager::Tick() { return S_OK; }
-HRESULT CSentientManager::Flush() { return S_OK; }
-BOOL CSentientManager::RecordPlayerSessionStart(DWORD dwUserId) { return true; }
-BOOL CSentientManager::RecordPlayerSessionExit(DWORD dwUserId, int exitStatus) { return true; }
-BOOL CSentientManager::RecordHeartBeat(DWORD dwUserId) { return true; }
-BOOL CSentientManager::RecordLevelStart(DWORD dwUserId, ESen_FriendOrMatch friendsOrMatch, ESen_CompeteOrCoop competeOrCoop, int difficulty, DWORD numberOfLocalPlayers, DWORD numberOfOnlinePlayers) { return true; }
-BOOL CSentientManager::RecordLevelExit(DWORD dwUserId, ESen_LevelExitStatus levelExitStatus) { return true; }
-BOOL CSentientManager::RecordLevelSaveOrCheckpoint(DWORD dwUserId, INT saveOrCheckPointID, INT saveSizeInBytes) { return true; }
-BOOL CSentientManager::RecordLevelResume(DWORD dwUserId, ESen_FriendOrMatch friendsOrMatch, ESen_CompeteOrCoop competeOrCoop, int difficulty, DWORD numberOfLocalPlayers, DWORD numberOfOnlinePlayers, INT saveOrCheckPointID) { return true; }
-BOOL CSentientManager::RecordPauseOrInactive(DWORD dwUserId) { return true; }
-BOOL CSentientManager::RecordUnpauseOrActive(DWORD dwUserId) { return true; }
-BOOL CSentientManager::RecordMenuShown(DWORD dwUserId, INT menuID, INT optionalMenuSubID) { return true; }
-BOOL CSentientManager::RecordAchievementUnlocked(DWORD dwUserId, INT achievementID, INT achievementGamerscore) { return true; }
-BOOL CSentientManager::RecordMediaShareUpload(DWORD dwUserId, ESen_MediaDestination mediaDestination, ESen_MediaType mediaType) { return true; }
-BOOL CSentientManager::RecordUpsellPresented(DWORD dwUserId, ESen_UpsellID upsellId, INT marketplaceOfferID) { return true; }
-BOOL CSentientManager::RecordUpsellResponded(DWORD dwUserId, ESen_UpsellID upsellId, INT marketplaceOfferID, ESen_UpsellOutcome upsellOutcome) { return true; }
-BOOL CSentientManager::RecordPlayerDiedOrFailed(DWORD dwUserId, INT lowResMapX, INT lowResMapY, INT lowResMapZ, INT mapID, INT playerWeaponID, INT enemyWeaponID, ETelemetryChallenges enemyTypeID) { return true; }
-BOOL CSentientManager::RecordEnemyKilledOrOvercome(DWORD dwUserId, INT lowResMapX, INT lowResMapY, INT lowResMapZ, INT mapID, INT playerWeaponID, INT enemyWeaponID, ETelemetryChallenges enemyTypeID) { return true; }
-BOOL CSentientManager::RecordSkinChanged(DWORD dwUserId, DWORD dwSkinId) { return true; }
-BOOL CSentientManager::RecordBanLevel(DWORD dwUserId) { return true; }
-BOOL CSentientManager::RecordUnBanLevel(DWORD dwUserId) { return true; }
-INT CSentientManager::GetMultiplayerInstanceID() { return 0; }
-INT CSentientManager::GenerateMultiplayerInstanceId() { return 0; }
-void CSentientManager::SetMultiplayerInstanceId(INT value) {}
-
-////////////////////////////////////////////////////////  Stats counter
 
 /*
 StatsCounter::StatsCounter() {}

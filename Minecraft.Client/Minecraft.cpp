@@ -5005,17 +5005,6 @@ void Minecraft::playerLeftTutorial(int iPad)
 	if(m_inFullTutorialBits == 0)
 	{
 		app.SetTutorialMode( false );
-
-		// 4J Stu -This telemetry event means something different on XboxOne, so we don't call it for simple state changes like this
-#ifndef _XBOX_ONE
-		for(DWORD idx = 0; idx < XUSER_MAX_COUNT; ++idx)
-		{
-			if(localplayers[idx] != NULL)
-			{
-				TelemetryManager->RecordLevelStart(idx, eSen_FriendOrMatch_Playing_With_Invited_Friends, eSen_CompeteOrCoop_Coop_and_Competitive, level->difficulty, app.GetLocalPlayerCount(), g_NetworkManager.GetOnlinePlayerCount());
-			}
-		}
-#endif
 	}
 }
 

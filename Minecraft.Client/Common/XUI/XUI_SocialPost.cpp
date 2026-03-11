@@ -59,8 +59,6 @@ HRESULT CScene_SocialPost::OnInit( XUIMessageInit* pInitData, BOOL& bHandled )
 	{
 		app.AdjustSplitscreenScene(m_hObj,&m_OriginalPosition,m_iPad,false);
 	}
-	
-	TelemetryManager->RecordMenuShown(m_iPad, eUIScene_SocialPost, 0);
 
 	return S_OK;
 }

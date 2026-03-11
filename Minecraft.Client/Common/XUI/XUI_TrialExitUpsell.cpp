@@ -74,7 +74,6 @@ HRESULT CScene_TrialExitUpsell::OnKeyDown(XUIMessageInput* pInputData, BOOL& rfH
 	case VK_PAD_X:
 		if(ProfileManager.IsSignedIn(pInputData->UserIndex))
 		{
-			TelemetryManager->RecordUpsellPresented(pInputData->UserIndex, eSen_UpsellID_Full_Version_Of_Game, app.m_dwOfferID);
 			ProfileManager.DisplayFullVersionPurchase(false,pInputData->UserIndex,eSen_UpsellID_Full_Version_Of_Game);
 		}
 		break;

@@ -1615,8 +1615,6 @@ void CMinecraftApp::SetPlayerSkin(int iPad,DWORD dwSkinId)
 	GameSettingsA[iPad]->dwSelectedSkin = dwSkinId;
 	GameSettingsA[iPad]->bSettingsChanged = true;
 
-	TelemetryManager->RecordSkinChanged(iPad, GameSettingsA[iPad]->dwSelectedSkin);
-
 	if(Minecraft::GetInstance()->localplayers[iPad]!=NULL) Minecraft::GetInstance()->localplayers[iPad]->setAndBroadcastCustomSkin(dwSkinId);
 }
 
@@ -3239,7 +3237,6 @@ void CMinecraftApp::HandleXuiActions(void)
 								app.SetRichPresenceContext(j,CONTEXT_GAME_STATE_BLANK);
 								ProfileManager.SetCurrentGameActivity(j,CONTEXT_PRESENCE_MULTIPLAYER,false);
 							}
-							TelemetryManager->RecordLevelExit(j, eSen_LevelExitStatus_Exited);
 						}
 					}
 				}
@@ -3254,7 +3251,6 @@ void CMinecraftApp::HandleXuiActions(void)
 					{
 						ProfileManager.SetCurrentGameActivity(i,CONTEXT_PRESENCE_MULTIPLAYER_1P,false);
 					}
-					TelemetryManager->RecordLevelExit(i, eSen_LevelExitStatus_Exited);
 				}
 				break;
 			case eAppAction_ExitWorldCapturedThumbnail:
@@ -3651,8 +3647,6 @@ void CMinecraftApp::HandleXuiActions(void)
 				// INVITES
 			case eAppAction_DashboardTrialJoinFromInvite:
 				{
-					TelemetryManager->RecordUpsellPresented(i, eSen_UpsellID_Full_Version_Of_Game, app.m_dwOfferID);
-
 					SetAction(i,eAppAction_Idle);
 					UINT uiIDA[2];
 					uiIDA[0]=IDS_CONFIRM_OK;
@@ -3693,8 +3687,6 @@ void CMinecraftApp::HandleXuiActions(void)
 					{
 						if(!ProfileManager.IsFullVersion())
 						{
-							TelemetryManager->RecordUpsellPresented(i, eSen_UpsellID_Full_Version_Of_Game, app.m_dwOfferID);
-
 							// upsell
 							uiIDA[0]=IDS_CONFIRM_OK;
 							uiIDA[1]=IDS_CONFIRM_CANCEL;
@@ -4034,7 +4026,6 @@ void CMinecraftApp::HandleXuiActions(void)
 					// It's possible that this state can get set after the game has been exited (e.g. by network disconnection) so we can't ban the level at that point
 					if(g_NetworkManager.IsInGameplay() && !g_NetworkManager.IsLeavingGame())
 					{
-						TelemetryManager->RecordBanLevel(i);
 
 #if defined _XBOX
 						INetworkPlayer *pHost=g_NetworkManager.GetHostPlayer();
@@ -4114,9 +4105,6 @@ void CMinecraftApp::HandleXuiActions(void)
 						{
 							purchased = true;
 						}
-#ifdef _XBOX
-						TelemetryManager->RecordTexturePackLoaded(i, pTexturePack->getId(), purchased?1:0);
-#endif
 					}
 
 					// 4J-PB  - If the texture pack has audio, we need to switch to this
@@ -4159,8 +4147,6 @@ void CMinecraftApp::HandleXuiActions(void)
 #ifdef _XBOX
 					ULONGLONG ullOfferID_Full;
 					app.GetDLCFullOfferIDForPackID(app.GetRequiredTexturePackID(),&ullOfferID_Full);
-
-					TelemetryManager->RecordUpsellPresented(ProfileManager.GetPrimaryPad(), eSet_UpsellID_Texture_DLC, ullOfferID_Full & 0xFFFFFFFF);
 #endif
 					UINT uiIDA[2];
 
@@ -4701,8 +4687,7 @@ int CMinecraftApp::UnlockFullInviteReturned(void *pParam,int iPad,C4JStorage::EM
 	}
 	else
 	{
-		TelemetryManager->RecordUpsellResponded(iPad, eSen_UpsellID_Full_Version_Of_Game, app.m_dwOfferID, eSen_UpsellOutcome_Declined);
-	}
+		// intentionally left empty
 
 	return 0;
 }
@@ -4766,7 +4751,7 @@ int CMinecraftApp::UnlockFullSaveReturned(void *pParam,int iPad,C4JStorage::EMes
 	}
 	else
 	{
-		TelemetryManager->RecordUpsellResponded(iPad, eSen_UpsellID_Full_Version_Of_Game, app.m_dwOfferID, eSen_UpsellOutcome_Declined);
+		// intentionally left empty
 	}
 
 	return 0;
@@ -4837,7 +4822,6 @@ int CMinecraftApp::UnlockFullExitReturned(void *pParam,int iPad,C4JStorage::EMes
 	}
 	else
 	{
-		TelemetryManager->RecordUpsellResponded(iPad, eSen_UpsellID_Full_Version_Of_Game, app.m_dwOfferID, eSen_UpsellOutcome_Declined);
 		pApp->SetAction(pMinecraft->player->GetXboxPad(),eAppAction_ExitWorldTrial);
 	}
 
@@ -4889,8 +4873,6 @@ int CMinecraftApp::TrialOverReturned(void *pParam,int iPad,C4JStorage::EMessageR
 	}
 	else
 	{
-		TelemetryManager->RecordUpsellResponded(iPad, eSen_UpsellID_Full_Version_Of_Game, app.m_dwOfferID, eSen_UpsellOutcome_Declined);
-
 #if defined(__PS3__) || defined(__ORBIS__)
 		// 4J Stu - We can't actually exit the game, so just exit back to the main menu
 		pApp->SetAction(pMinecraft->player->GetXboxPad(),eAppAction_ExitWorldTrial);
@@ -5282,9 +5264,6 @@ void CMinecraftApp::UpsellReturnedCallback(LPVOID pParam, eUpsellType type, eUps
 		senType = eSen_UpsellID_Undefined;
 		break;
 	};
-
-	// Always the primary pad that gets an upsell
-	TelemetryManager->RecordUpsellResponded(ProfileManager.GetPrimaryPad(), eSen_UpsellID_Full_Version_Of_Game, app.m_dwOfferID, senResponse);
 }
 
 #ifdef _DEBUG_MENUS_ENABLED
@@ -6003,9 +5982,6 @@ int CMinecraftApp::ExitAndJoinFromInviteSaveDialogReturned(void *pParam,int iPad
 					DLCTexturePack *pDLCTexPack=(DLCTexturePack *)tPack;
 					ULONGLONG ullOfferID_Full;
 					app.GetDLCFullOfferIDForPackID(pDLCTexPack->getDLCParentPackId(),&ullOfferID_Full);
-
-					// tell sentient about the upsell of the full version of the skin pack
-					TelemetryManager->RecordUpsellPresented(iPad, eSet_UpsellID_Texture_DLC, ullOfferID_Full & 0xFFFFFFFF);
 #endif
 
 					UINT uiIDA[2];
@@ -6178,7 +6154,7 @@ int CMinecraftApp::WarningTrialTexturePackReturned(void *pParam,int iPad,C4JStor
 	}
 	else
 	{
-		TelemetryManager->RecordUpsellResponded(iPad, eSet_UpsellID_Texture_DLC, ( ullIndexA[0] & 0xFFFFFFFF ), eSen_UpsellOutcome_Declined);
+		// intentionally left empty
 	}
 #endif
 	return 0;
@@ -6209,9 +6185,6 @@ int CMinecraftApp::ExitAndJoinFromInviteAndSaveReturned(void *pParam,int iPad,C4
 				DLCTexturePack *pDLCTexPack=(DLCTexturePack *)tPack;
 				ULONGLONG ullOfferID_Full;
 				app.GetDLCFullOfferIDForPackID(pDLCTexPack->getDLCParentPackId(),&ullOfferID_Full);
-
-				// tell sentient about the upsell of the full version of the skin pack
-				TelemetryManager->RecordUpsellPresented(iPad, eSet_UpsellID_Texture_DLC, ullOfferID_Full & 0xFFFFFFFF);
 #endif
 
 				UINT uiIDA[2];
@@ -7635,7 +7608,6 @@ void CMinecraftApp::AddLevelToBannedLevelList(int iPad, PlayerUID xuid, char *ps
 		StorageManager.TMSPP_WriteFile(iPad,C4JStorage::eGlobalStorage_TitleUser,C4JStorage::TMS_FILETYPE_BINARY,L"BannedList",(PBYTE) pBannedList, dwDataBytes,NULL,NULL, 0);
 #endif
 	}
-	// update telemetry too
 }
 
 bool CMinecraftApp::IsInBannedLevelList(int iPad, PlayerUID xuid, char *pszLevelName)
@@ -7675,8 +7647,6 @@ void CMinecraftApp::RemoveLevelFromBannedLevelList(int iPad, PlayerUID xuid, cha
 			if(IsEqualXUID (pBannedListData->xuid,xuid) && (strcmp(pBannedListData->pszLevelName,pszLevelName)==0))
 #endif
 			{
-				TelemetryManager->RecordUnBanLevel(iPad);
-
 				// match found, so remove this entry
 				it = m_vBannedListA[iPad]->erase(it);
 			}
@@ -7719,8 +7689,6 @@ void CMinecraftApp::RemoveLevelFromBannedLevelList(int iPad, PlayerUID xuid, cha
 #endif
 		delete [] pBannedList;
 	}
-
-	// update telemetry too
 }
 
 // function to add credits for the DLC packs

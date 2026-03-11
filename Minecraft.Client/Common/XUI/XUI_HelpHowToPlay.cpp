@@ -44,8 +44,6 @@ HRESULT CScene_HowToPlay::OnInit( XUIMessageInit* pInitData, BOOL& bHandled )
 	m_iPad = ( int )( ( short )( uiInitData & 0xFFFF ) );
 	EHowToPlayPage eStartPage = ( EHowToPlayPage )( ( uiInitData >> 16 ) & 0xFFF );		// Ignores MSB which is set to 1!
 
-	TelemetryManager->RecordMenuShown(m_iPad, eUIScene_HowToPlay, (ETelemetry_HowToPlay_SubMenuId)eStartPage);
-
 	MapChildControls();
 
 	wstring wsTemp, inventoryString = app.GetString(IDS_INVENTORY);
@@ -227,8 +225,6 @@ void CScene_HowToPlay::StartPage( EHowToPlayPage ePage )
 	{
 		ui.SetTooltips( iBaseSceneUser, IDS_HOW_TO_PLAY_NEXT, IDS_TOOLTIPS_BACK, IDS_HOW_TO_PLAY_PREV );
 	}
-
-	TelemetryManager->RecordMenuShown(m_iPad, eUIScene_HowToPlay, (ETelemetry_HowToPlay_SubMenuId)ePage);
 }
 
 HRESULT CScene_HowToPlay::OnCustomMessage_Splitscreenplayer(bool bJoining, BOOL& bHandled)

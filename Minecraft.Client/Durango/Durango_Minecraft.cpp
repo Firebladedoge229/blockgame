@@ -28,7 +28,6 @@
 #include "..\..\Minecraft.Client\Tesselator.h"
 #include "..\..\Minecraft.Client\Options.h"
 #include "..\GameRenderer.h"
-#include "Sentient\SentientManager.h"
 #include "..\..\Minecraft.World\IntCache.h"
 #include "..\Textures.h"
 #include "Resource.h"
@@ -762,13 +761,6 @@ void oldWinMainTick()
 //		CSocialManager::Instance()->Tick();
 		PIXEndNamedEvent();
 		
-		// Tick sentient.
-		PIXBeginNamedEvent(0,"Sentient tick");
-		MemSect(37);
-//		SentientManager.Tick();
-		MemSect(0);
-		PIXEndNamedEvent();
-
 		GameProgress::Tick();
 
 		PIXBeginNamedEvent(PIX_COLOR_INDEX(2),"Network manager do work #1");

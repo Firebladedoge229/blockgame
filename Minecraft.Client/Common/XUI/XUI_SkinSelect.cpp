@@ -275,9 +275,6 @@ HRESULT CScene_SkinSelect::OnKeyDown(XUIMessageInput* pInputData, BOOL& rfHandle
 								ullOfferID_Full=m_currentPack->getPurchaseOfferId();
 							}
 
-							// tell sentient about the upsell of the full version of the skin pack
-							TelemetryManager->RecordUpsellPresented(pInputData->UserIndex, eSet_UpsellID_Skin_DLC, ullOfferID_Full & 0xFFFFFFFF);
-
 							UINT uiIDA[2];
 							uiIDA[0]=IDS_CONFIRM_OK;
 							uiIDA[1]=IDS_CONFIRM_CANCEL;
@@ -1343,7 +1340,7 @@ int CScene_SkinSelect::UnlockSkinReturned(void *pParam,int iPad,C4JStorage::EMes
 	}
 	else
 	{
-		TelemetryManager->RecordUpsellResponded(iPad, eSet_UpsellID_Skin_DLC, ( pScene->m_currentPack->getPurchaseOfferId() & 0xFFFFFFFF ), eSen_UpsellOutcome_Declined);
+		// intentionally left empty
 	}
 #endif
 	return 0;

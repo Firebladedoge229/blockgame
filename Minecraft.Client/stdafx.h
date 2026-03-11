@@ -223,11 +223,7 @@ typedef XUID GameSessionUID;
 
 #ifdef _XBOX
 	#include "Xbox\Xbox_App.h"
-	#include "Xbox\Sentient\MinecraftTelemetry.h"
-	#include "Xbox\Sentient\DynamicConfigurations.h"
 	#include "XboxMedia\strings.h"
-	#include "Xbox\Sentient\SentientTelemetryCommon.h"
-	#include "Xbox\Sentient\Include\SenClientStats.h"
 	#include "Xbox\GameConfig\Minecraft.spa.h"
 	#include "XboxMedia\4J_strings.h"
 	#include "Xbox\XML\ATGXmlParser.h"
@@ -238,9 +234,6 @@ typedef XUID GameSessionUID;
 
 #elif defined (__PS3__)
 	#include "extraX64client.h"
-	#include "PS3\Sentient\MinecraftTelemetry.h"
-	#include "PS3\Sentient\DynamicConfigurations.h"
-	#include "PS3\Sentient\SentientTelemetryCommon.h"
 	#include "PS3Media\strings.h"
 	#include "PS3\PS3_App.h"
 	#include "PS3\GameConfig\Minecraft.spa.h"
@@ -252,12 +245,8 @@ typedef XUID GameSessionUID;
 	#include "PS3\Iggy\gdraw\gdraw_ps3gcm.h"
 	#include "PS3\PS3_UIController.h"
 #elif defined _DURANGO
-	#include "Durango\Sentient\MinecraftTelemetry.h"
 	#include "DurangoMedia\strings.h"
 	#include "Durango\Durango_App.h"
-	#include "Durango\Sentient\DynamicConfigurations.h"
-	#include "Durango\Sentient\TelemetryEnum.h"
-	#include "Durango\Sentient\SentientTelemetryCommon.h"
 	#include "Durango\PresenceIds.h"
 	#include "DurangoMedia\4J_strings.h"
 	#include "Durango\XML\ATGXmlParser.h"
@@ -267,11 +256,8 @@ typedef XUID GameSessionUID;
 	#include "Durango\Iggy\gdraw\gdraw_d3d11.h"
 	#include "Durango\Durango_UIController.h"
 #elif defined _WINDOWS64
-	#include "Windows64\Sentient\MinecraftTelemetry.h"
 	#include "Windows64Media\strings.h"
 	#include "Windows64\Windows64_App.h"
-	#include "Windows64\Sentient\DynamicConfigurations.h"
-	#include "Windows64\Sentient\SentientTelemetryCommon.h"
 	#include "Windows64\GameConfig\Minecraft.spa.h"
 	#include "Windows64\XML\ATGXmlParser.h"
 	#include "Windows64\Social\SocialManager.h"
@@ -282,9 +268,6 @@ typedef XUID GameSessionUID;
 #elif defined __PSVITA__
 	#include "PSVita\PSVita_App.h"
 	#include "PSVitaMedia\strings.h"		// TODO - create PSVita-specific version of this
-	#include "PSVita\Sentient\SentientManager.h"
-	#include "PSVita\Sentient\MinecraftTelemetry.h"
-	#include "PSVita\Sentient\DynamicConfigurations.h"
 	#include "PSVita\GameConfig\Minecraft.spa.h"
 	#include "PSVita\XML\ATGXmlParser.h"
 	#include "PSVita\Social\SocialManager.h"
@@ -293,11 +276,8 @@ typedef XUID GameSessionUID;
 	#include "PSVita\Iggy\gdraw\gdraw_psp2.h"
 	#include "PSVita\PSVita_UIController.h"
 #else
-	#include "Orbis\Sentient\MinecraftTelemetry.h"
 	#include "OrbisMedia\strings.h"
 	#include "Orbis\Orbis_App.h"
-	#include "Orbis\Sentient\SentientTelemetryCommon.h"
-	#include "Orbis\Sentient\DynamicConfigurations.h"
 	#include "Orbis\GameConfig\Minecraft.spa.h"
 	#include "OrbisMedia\4J_strings.h"
 	#include "Orbis\XML\ATGXmlParser.h"
@@ -330,7 +310,6 @@ typedef XUID GameSessionUID;
 #include "Common\DLC\DLCSkinFile.h"
 #include "Common\DLC\DLCManager.h"
 #include "Common\DLC\DLCPack.h"
-#include "Common\Telemetry\TelemetryManager.h"
 
 #ifdef _XBOX
 //#include "Xbox\Xbox_App.h"

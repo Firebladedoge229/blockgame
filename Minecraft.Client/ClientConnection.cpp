@@ -187,8 +187,6 @@ void ClientConnection::handleLogin(shared_ptr<LoginPacket> packet)
 	if( m_userIndex == ProfileManager.GetPrimaryPad() )
 	{
 		iUserID=m_userIndex;
-
-		TelemetryManager->SetMultiplayerInstanceId(packet->m_multiplayerInstanceId);
 	}
 	else
 	{
@@ -411,7 +409,7 @@ void ClientConnection::handleLogin(shared_ptr<LoginPacket> packet)
 		ui.UpdateSelectedItemPos(iUserID);
 	}
 
-	TelemetryManager->RecordLevelStart(m_userIndex, eSen_FriendOrMatch_Playing_With_Invited_Friends, eSen_CompeteOrCoop_Coop_and_Competitive, Minecraft::GetInstance()->getLevel(packet->dimension)->difficulty, app.GetLocalPlayerCount(), g_NetworkManager.GetOnlinePlayerCount());
+	g_NetworkManager.GetOnlinePlayerCount());
 }
 
 void ClientConnection::handleAddEntity(shared_ptr<AddEntityPacket> packet)
@@ -1876,11 +1874,6 @@ void ClientConnection::handleEntityActionAtPosition(shared_ptr<EntityActionAtPos
 	{
 		shared_ptr<Player> player = dynamic_pointer_cast<Player>(e);
 		player->startSleepInBed(packet->x, packet->y, packet->z);
-
-		if( player == minecraft->localplayers[m_userIndex] )
-		{
-			TelemetryManager->RecordEnemyKilledOrOvercome(m_userIndex, 0, player->y, 0, 0, 0, 0, eTelemetryInGame_UseBed);
-		}
 	}
 }
 
@@ -2777,15 +2770,13 @@ void ClientConnection::handleRespawn(shared_ptr<RespawnPacket> packet)
 		minecraft->setLevel(dimensionLevel);
 		minecraft->player = lastPlayer;
 
-		TelemetryManager->RecordLevelExit(m_userIndex, eSen_LevelExitStatus_Succeeded);
-
 		//minecraft->player->dimension = packet->dimension;
 		minecraft->localplayers[m_userIndex]->dimension = packet->dimension;
 		//minecraft->setScreen(new ReceivingLevelScreen(this));
 //		minecraft->addPendingLocalConnection(m_userIndex, this);
 
 #ifdef _XBOX
-		TelemetryManager->RecordLevelStart(m_userIndex, eSen_FriendOrMatch_Playing_With_Invited_Friends, eSen_CompeteOrCoop_Coop_and_Competitive, Minecraft::GetInstance()->getLevel(packet->dimension)->difficulty, app.GetLocalPlayerCount(), g_NetworkManager.GetOnlinePlayerCount());
+		g_NetworkManager.GetOnlinePlayerCount());
 #endif
 
 		if( minecraft->localgameModes[m_userIndex] != NULL )

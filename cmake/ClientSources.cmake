@@ -78,7 +78,6 @@ set(MINECRAFT_CLIENT_SOURCES
   "Common/Leaderboards/LeaderboardManager.cpp"
   "Common/Network/GameNetworkManager.cpp"
   "Common/Network/PlatformNetworkManagerStub.cpp"
-  "Common/Telemetry/TelemetryManager.cpp"
   "Common/Trial/TrialMode.cpp"
   "Common/Tutorial/AreaConstraint.cpp"
   "Common/Tutorial/AreaHint.cpp"

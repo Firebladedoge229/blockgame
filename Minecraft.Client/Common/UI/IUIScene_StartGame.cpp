@@ -229,8 +229,6 @@ void IUIScene_StartGame::UpdateCurrentTexturePack(int iSlot)
 		ULONGLONG ullOfferID_Full;
 		app.GetDLCFullOfferIDForPackID(ListItem.iData,&ullOfferID_Full);
 
-		TelemetryManager->RecordUpsellPresented(ProfileManager.GetPrimaryPad(), eSet_UpsellID_Texture_DLC, ullOfferID_Full & 0xFFFFFFFF);
-
 		UINT uiIDA[3];
 
 		uiIDA[0]=IDS_TEXTUREPACK_FULLVERSION;
@@ -299,9 +297,7 @@ int IUIScene_StartGame::UnlockTexturePackReturned(void *pParam,int iPad,C4JStora
 	}
 	else
 	{
-#if defined _XBOX
-		TelemetryManager->RecordUpsellResponded(iPad, eSet_UpsellID_Texture_DLC, ( pScene->m_pDLCPack->getPurchaseOfferId() & 0xFFFFFFFF ), eSen_UpsellOutcome_Declined);
-#endif
+		// intentionally left empty
 	}
 
 	pScene->m_bIgnoreInput = false;

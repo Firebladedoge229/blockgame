@@ -60,7 +60,6 @@ void UIScene_TrialExitUpsell::handleInput(int iPad, int key, bool repeat, bool p
 			else
 #endif
 			{
-				TelemetryManager->RecordUpsellPresented(iPad, eSen_UpsellID_Full_Version_Of_Game, app.m_dwOfferID);
 				ProfileManager.DisplayFullVersionPurchase(false,iPad,eSen_UpsellID_Full_Version_Of_Game);
 			}
 		}

@@ -138,8 +138,6 @@ UIScene_HowToPlay::UIScene_HowToPlay(int iPad, void *initData, UILayer *parentLa
 	
 	EHowToPlayPage eStartPage = ( EHowToPlayPage )( ( uiInitData >> 16 ) & 0xFFF );		// Ignores MSB which is set to 1!
 
-	TelemetryManager->RecordMenuShown(m_iPad, eUIScene_HowToPlay, (ETelemetry_HowToPlay_SubMenuId)eStartPage);
-
 	StartPage( eStartPage );
 }
 
@@ -334,8 +332,6 @@ void UIScene_HowToPlay::StartPage( EHowToPlayPage ePage )
 	delete [] stringVal;
 
 	updateTooltips();
-
-	TelemetryManager->RecordMenuShown(m_iPad, eUIScene_HowToPlay, (ETelemetry_HowToPlay_SubMenuId)ePage);
 
 #ifdef __PSVITA__
 	ui.TouchBoxRebuild(this);

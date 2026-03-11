@@ -118,8 +118,6 @@ HRESULT CScene_MultiGameInfo::OnInit( XUIMessageInit* pInitData, BOOL& bHandled 
 	
 	// Alert the app the we want to be informed of ethernet connections
 	app.SetLiveLinkRequired( true );
-	
-	TelemetryManager->RecordMenuShown(m_iPad, eUIScene_JoinMenu, 0);
 
 	ui.SetTooltips( DEFAULT_XUI_MENU_USER, IDS_TOOLTIPS_SELECT, IDS_TOOLTIPS_BACK );
 

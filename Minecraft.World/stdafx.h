@@ -196,39 +196,25 @@ void MemSect(int sect);
 #ifdef _XBOX
 #include "..\Minecraft.Client\Xbox\Xbox_App.h"
 #include "..\Minecraft.Client\XboxMedia\strings.h"
-#include "..\Minecraft.Client\Xbox\Sentient\SentientTelemetryCommon.h"
-#include "..\Minecraft.Client\Xbox\Sentient\MinecraftTelemetry.h"
 
 #elif defined (__PS3__)
 #include "..\Minecraft.Client\PS3\PS3_App.h"
 #include "..\Minecraft.Client\PS3Media\strings.h"
-#include "..\Minecraft.Client\PS3\Sentient\SentientTelemetryCommon.h"
-#include "..\Minecraft.Client\PS3\Sentient\MinecraftTelemetry.h"
 
 #elif defined _DURANGO
 #include "..\Minecraft.Client\Durango\Durango_App.h"
 #include "..\Minecraft.Client\DurangoMedia\strings.h"
-//#include "..\Minecraft.Client\Durango\Sentient\SentientManager.h"
-#include "..\Minecraft.Client\Durango\Sentient\SentientTelemetryCommon.h"
-#include "..\Minecraft.Client\Durango\Sentient\MinecraftTelemetry.h"
-#include "..\Minecraft.Client\Durango\Sentient\TelemetryEnum.h"
 
 #elif defined _WINDOWS64
 #include "..\Minecraft.Client\Windows64\Windows64_App.h"
 #include "..\Minecraft.Client\Windows64Media\strings.h"
-#include "..\Minecraft.Client\Windows64\Sentient\SentientTelemetryCommon.h"
-#include "..\Minecraft.Client\Windows64\Sentient\MinecraftTelemetry.h"
 
 #elif defined __PSVITA__
 #include "..\Minecraft.Client\PSVita\PSVita_App.h"
 #include "..\Minecraft.Client\PSVitaMedia\strings.h"		// TODO - create PSVita-specific version of this
-#include "..\Minecraft.Client\PSVita\Sentient\SentientManager.h"
-#include "..\Minecraft.Client\PSVita\Sentient\MinecraftTelemetry.h"
 #else
 #include "..\Minecraft.Client\Orbis\Orbis_App.h"
 #include "..\Minecraft.Client\OrbisMedia\strings.h"
-#include "..\Minecraft.Client\Orbis\Sentient\SentientTelemetryCommon.h"
-#include "..\Minecraft.Client\Orbis\Sentient\MinecraftTelemetry.h"
 #endif
 
 #include "..\Minecraft.Client\Common\DLC\DLCSkinFile.h"
@@ -237,4 +223,3 @@ void MemSect(int sect);
 #include "..\Minecraft.Client\Common\Console_Debug_enum.h"
 #include "..\Minecraft.Client\Common\GameRules\ConsoleGameRulesConstants.h"
 #include "..\Minecraft.Client\Common\GameRules\ConsoleGameRules.h"
-#include "..\Minecraft.Client\Common\Telemetry\TelemetryManager.h"

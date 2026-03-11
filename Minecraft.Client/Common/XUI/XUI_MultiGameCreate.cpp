@@ -149,8 +149,6 @@ HRESULT CScene_MultiGameCreate::OnInit( XUIMessageInit* pInitData, BOOL& bHandle
 	XuiSetTimer(m_hObj,GAME_CREATE_ONLINE_TIMER_ID,GAME_CREATE_ONLINE_TIMER_TIME);
 	XuiSetTimer(m_hObj,CHECKFORAVAILABLETEXTUREPACKS_TIMER_ID,CHECKFORAVAILABLETEXTUREPACKS_TIMER_TIME);
 
-	TelemetryManager->RecordMenuShown(m_iPad, eUIScene_CreateWorldMenu, 0);
-
 	// 4J-PB - Load up any texture pack data we have locally in the XZP
 	for(int i=0;i<TMS_COUNT;i++)
 	{
@@ -339,8 +337,6 @@ HRESULT CScene_MultiGameCreate::OnNotifyPressEx(HXUIOBJ hObjPressed, XUINotifyPr
 				// DLC might have been corrupt
 				if(ullOfferID_Full!=0LL)
 				{
-					TelemetryManager->RecordUpsellPresented(ProfileManager.GetPrimaryPad(), eSet_UpsellID_Texture_DLC, ullOfferID_Full & 0xFFFFFFFF);
-
 					UINT uiIDA[3];
 
 					// Need to check if the texture pack has both Full and Trial versions - we may do some as free ones, so only Full
@@ -427,9 +423,6 @@ HRESULT CScene_MultiGameCreate::OnNotifyPressEx(HXUIOBJ hObjPressed, XUINotifyPr
 						{
 							ullOfferID_Full=pTexturePack->getDLCPack()->getPurchaseOfferId();
 						}
-
-						// tell sentient about the upsell of the full version of the skin pack
-						TelemetryManager->RecordUpsellPresented(pNotifyPressData->UserIndex, eSet_UpsellID_Texture_DLC, ullOfferID_Full & 0xFFFFFFFF);
 
 						UINT uiIDA[1];
 						uiIDA[0]=IDS_CONFIRM_OK;
@@ -547,7 +540,7 @@ int CScene_MultiGameCreate::UnlockTexturePackReturned(void *pParam,int iPad,C4JS
 	}
 	else
 	{
-		TelemetryManager->RecordUpsellResponded(iPad, eSet_UpsellID_Texture_DLC, ( pScene->m_pDLCPack->getPurchaseOfferId() & 0xFFFFFFFF ), eSen_UpsellOutcome_Declined);
+		// intentionally left empty
 	}
 #endif
 	pScene->m_bIgnoreInput = false;
@@ -1181,8 +1174,6 @@ void CScene_MultiGameCreate::UpdateCurrentTexturePack()
 		// tell sentient about the upsell of the full version of the skin pack
 		ULONGLONG ullOfferID_Full;
 		app.GetDLCFullOfferIDForPackID(ListItem.iData,&ullOfferID_Full);
-
-		TelemetryManager->RecordUpsellPresented(ProfileManager.GetPrimaryPad(), eSet_UpsellID_Texture_DLC, ullOfferID_Full & 0xFFFFFFFF);
 
 		UINT uiIDA[3];
 

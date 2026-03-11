@@ -28,7 +28,6 @@
 #include "..\Common\XUI\XUI_Scene_Container.h"
 #include "..\..\Minecraft.Client\Tesselator.h"
 #include "..\..\Minecraft.Client\Options.h"
-#include "Sentient\SentientManager.h"
 #include "..\..\Minecraft.World\IntCache.h"
 #include "..\Textures.h"
 #include "..\..\Minecraft.World\compression.h"
@@ -507,9 +506,6 @@ int __cdecl main()
 // 			NUI_INITIALIZE_FLAG_EXTRAPOLATE_FLOOR_PLANE | NUI_INITIALIZE_FLAG_USES_FITNESS | NUI_INITIALIZE_FLAG_NUI_GUIDE_DISABLED | NUI_INITIALIZE_FLAG_SUPPRESS_AUTOMATIC_UI,NUI_INITIALIZE_DEFAULT_HARDWARE_THREAD );
 // 	}
 
-	// Sentient !
-	hr = TelemetryManager->Init();  
-
 	// Initialise TLS for tesselator, for this main thread
 	Tesselator::CreateNewThreadStorage(1024*1024);
 	// Initialise TLS for AABB and Vec3 pools, for this main thread
@@ -648,13 +644,6 @@ int __cdecl main()
 		// Tick the social networking manager.
 		PIXBeginNamedEvent(0,"Social network manager tick");
 		CSocialManager::Instance()->Tick();
-		PIXEndNamedEvent();
-		
-		// Tick sentient.
-		PIXBeginNamedEvent(0,"Sentient tick");
-		MemSect(37);
-		TelemetryManager->Tick();
-		MemSect(0);
 		PIXEndNamedEvent();
 
 		PIXBeginNamedEvent(0,"Network manager do work #1");

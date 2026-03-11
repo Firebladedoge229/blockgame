@@ -57,7 +57,6 @@
 #include "ServerCommandDispatcher.h"
 #include "..\Minecraft.World\BiomeSource.h"
 #include "PlayerChunkMap.h"
-#include "Common\Telemetry\TelemetryManager.h"
 #include "PlayerConnection.h"
 #ifdef _XBOX_ONE
 #include "Durango\Network\NetworkPlayerDurango.h"
@@ -1435,15 +1434,6 @@ void MinecraftServer::Suspend()
 
 	qwDeltaTime.QuadPart = qwNewTime.QuadPart - qwTime.QuadPart;
 	fElapsedTime = fSecsPerTick * ((FLOAT)(qwDeltaTime.QuadPart));
-
-	// 4J-JEV: Flush stats and call PlayerSessionExit.
-	for (int iPad = 0; iPad < XUSER_MAX_COUNT; iPad++)
-	{
-		if (ProfileManager.IsSignedIn(iPad))
-		{
-			TelemetryManager->RecordPlayerSessionExit(iPad, DisconnectPacket::eDisconnect_Quitting);
-		}
-	}
 
 	m_suspending = false;
 	app.DebugPrintf("Suspend server: Elapsed time %f\n", fElapsedTime);

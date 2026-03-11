@@ -245,7 +245,6 @@ HRESULT CScene_LoadGameSettings::OnInit( XUIMessageInit* pInitData, BOOL& bHandl
 		CXuiSceneBase::ShowLogo( DEFAULT_XUI_MENU_USER, FALSE );
 	}
 	
-	TelemetryManager->RecordMenuShown(m_iPad, eUIScene_LoadMenu, 0);
 	m_iTexturePacksNotInstalled=0;
 	
 	// block input if we're waiting for DLC to install, and wipe the saves list. The end of dlc mounting custom message will fill the list again
@@ -520,8 +519,6 @@ HRESULT CScene_LoadGameSettings::OnNotifyPressEx(HXUIOBJ hObjPressed, XUINotifyP
 				// 4J-PB - if the full offer id is 0, then the texture pack dlc load failed
 				if(ullOfferID_Full!=0LL)
 				{			
-					// tell sentient about the upsell of the full version of the skin pack				
-					TelemetryManager->RecordUpsellPresented(ProfileManager.GetPrimaryPad(), eSet_UpsellID_Texture_DLC, ullOfferID_Full & 0xFFFFFFFF);
 
 					UINT uiIDA[3];
 
@@ -608,9 +605,6 @@ HRESULT CScene_LoadGameSettings::OnNotifyPressEx(HXUIOBJ hObjPressed, XUINotifyP
 						{
 							ullOfferID_Full=pTexturePack->getDLCPack()->getPurchaseOfferId();
 						}
-
-						// tell sentient about the upsell of the full version of the texture pack
-						TelemetryManager->RecordUpsellPresented(pNotifyPressData->UserIndex, eSet_UpsellID_Texture_DLC, ullOfferID_Full & 0xFFFFFFFF);
 
 						UINT uiIDA[2];
 						uiIDA[0]=IDS_CONFIRM_OK;
@@ -942,7 +936,7 @@ void CScene_LoadGameSettings::StartGameFromSave(CScene_LoadGameSettings* pClass,
 {
 	INT saveOrCheckpointId = 0;
 	bool validSave = StorageManager.GetSaveUniqueNumber(&saveOrCheckpointId);
-	TelemetryManager->RecordLevelResume(pClass->m_iPad, eSen_FriendOrMatch_Playing_With_Invited_Friends, eSen_CompeteOrCoop_Coop_and_Competitive, app.GetGameSettings(pClass->m_iPad,eGameSetting_Difficulty), app.GetLocalPlayerCount(), g_NetworkManager.GetOnlinePlayerCount(), saveOrCheckpointId);
+	g_NetworkManager.GetOnlinePlayerCount(), saveOrCheckpointId);
 
 	bool isClientSide = ProfileManager.IsSignedInLive(ProfileManager.GetPrimaryPad()) && pClass->m_MoreOptionsParams.bOnlineGame;
 	bool isPrivate = (app.GetGameSettings(pClass->m_iPad,eGameSetting_InviteOnly)>0)?true:false;
@@ -1175,7 +1169,7 @@ int CScene_LoadGameSettings::UnlockTexturePackReturned(void *pParam,int iPad,C4J
 	}
 	else
 	{
-		TelemetryManager->RecordUpsellResponded(iPad, eSet_UpsellID_Texture_DLC, ( pScene->m_pDLCPack->getPurchaseOfferId() & 0xFFFFFFFF ), eSen_UpsellOutcome_Declined);
+		// intentionally left empty
 	}
 
 	pScene->m_bIgnoreInput = false;
@@ -1335,8 +1329,6 @@ void CScene_LoadGameSettings::UpdateCurrentTexturePack()
 		// tell sentient about the upsell of the full version of the skin pack
 		ULONGLONG ullOfferID_Full;
 		app.GetDLCFullOfferIDForPackID(ListItem.iData,&ullOfferID_Full);
-
-		TelemetryManager->RecordUpsellPresented(ProfileManager.GetPrimaryPad(), eSet_UpsellID_Texture_DLC, ullOfferID_Full & 0xFFFFFFFF);
 
 		UINT uiIDA[3];
 

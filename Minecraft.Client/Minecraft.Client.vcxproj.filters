@@ -159,26 +159,8 @@
     <Filter Include="Xbox\XML">
       <UniqueIdentifier>{1a98ef4c-6c9d-4a22-93d7-89f0fc3320fd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Xbox\SentientLibs">
-      <UniqueIdentifier>{3be02e3c-c628-4315-a507-a9fe7733af01}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Xbox\SentientLibs\inc">
-      <UniqueIdentifier>{c6dffb6d-2cf6-4c3e-89a3-fb05229b98aa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Xbox\SentientLibs\libs">
-      <UniqueIdentifier>{7d088a48-eeda-4783-94f7-c0d09b06f347}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Xbox\Source Files\Font">
       <UniqueIdentifier>{a466219c-afde-4184-8b84-91df32e5b892}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Xbox\Source Files\Sentient">
-      <UniqueIdentifier>{40d6ff43-3d13-42ab-99ae-ebc9d585110f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Xbox\Source Files\Sentient\Telemetry">
-      <UniqueIdentifier>{047a3693-2040-404d-a386-2e5795b231d3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Xbox\Source Files\Sentient\DynamicConf">
-      <UniqueIdentifier>{2509ddc5-330c-45da-a6f9-d37b858acd34}</UniqueIdentifier>
     </Filter>
     <Filter Include="net\minecraft\client\model\geom">
       <UniqueIdentifier>{b2935b29-33d3-4d57-a145-753a646e5de4}</UniqueIdentifier>
@@ -243,17 +225,11 @@
     <Filter Include="Durango\res\title">
       <UniqueIdentifier>{716a30f7-f9dd-43bf-9228-646dff4c58b1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Durango\SentientLibs">
-      <UniqueIdentifier>{3531c304-b08e-48ae-860c-773f6702ec4d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Durango\Source Files">
       <UniqueIdentifier>{924f367a-618c-429e-9866-f60821f21d4a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Durango\Source Files\Leaderboards">
       <UniqueIdentifier>{e3e43b8f-e455-4222-a92e-f6567a41e326}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Durango\Source Files\Sentient">
-      <UniqueIdentifier>{61ac879d-17b0-402b-b29f-88c60a1161c7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Durango\Source Files\Social">
       <UniqueIdentifier>{4f5c7e99-5cbc-4db4-99c4-37db45537198}</UniqueIdentifier>
@@ -315,9 +291,6 @@
     <Filter Include="PS3\Source Files\Leaderboards">
       <UniqueIdentifier>{33371180-d4ec-4439-8a95-059babcc1db9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="PS3\Source Files\Sentient">
-      <UniqueIdentifier>{c6d264ea-d4ac-4f3f-81f7-0d91fdc27713}</UniqueIdentifier>
-    </Filter>
     <Filter Include="PS3\Source Files\Social">
       <UniqueIdentifier>{bde45e25-7dce-4a39-a2bf-dad234708b07}</UniqueIdentifier>
     </Filter>
@@ -363,9 +336,6 @@
     <Filter Include="Windows64\Source Files\Leaderboards">
       <UniqueIdentifier>{eb5eb5f3-0ea7-4658-a8fb-634eb289941d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Windows64\Source Files\Sentient">
-      <UniqueIdentifier>{46d5754b-1818-4685-a16d-f7415f61868c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Windows64\Source Files\Social">
       <UniqueIdentifier>{541f67ae-2627-40af-8316-d76ee9bb6985}</UniqueIdentifier>
     </Filter>
@@ -389,9 +359,6 @@
     </Filter>
     <Filter Include="Orbis\Source Files\Leaderboards">
       <UniqueIdentifier>{9a2c49f6-2f9d-4e9d-a4ea-a0a04ecba75f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Orbis\Source Files\Sentient">
-      <UniqueIdentifier>{24e96065-3dd4-4150-bde2-128d133fd2c4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Orbis\Source Files\Social">
       <UniqueIdentifier>{10961b95-cb43-4a00-b999-04b66a1a0b43}</UniqueIdentifier>
@@ -582,9 +549,6 @@
     <Filter Include="Common\Source Files\Leaderboards">
       <UniqueIdentifier>{3eefa342-44e2-493a-9165-40f85bcef557}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Windows64\Source Files\SentientLibs">
-      <UniqueIdentifier>{f88c0f6a-8051-41e7-9bf6-b9d3c7bb2937}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Xbox\Source Files\XUI">
       <UniqueIdentifier>{a6b9803b-8dc2-4552-856e-470f78757533}</UniqueIdentifier>
     </Filter>
@@ -678,9 +642,6 @@
     <Filter Include="PSVita\PSVitaExtras">
       <UniqueIdentifier>{177ed754-f97c-4e53-9e75-1f548ae2a0b4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="PSVita\Source Files\Sentient">
-      <UniqueIdentifier>{4b317e13-b7e6-4468-8a2e-bfbbe3bb272b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="PSVita\Source Files\Social">
       <UniqueIdentifier>{acc4e8ae-a1f1-4f2b-9bf2-e12b74fa3a1a}</UniqueIdentifier>
     </Filter>
@@ -692,9 +653,6 @@
     </Filter>
     <Filter Include="Durango\ServiceConfig">
       <UniqueIdentifier>{b043e348-607a-4ac2-95de-f573db5dd04f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Common\Source Files\Telemetry">
-      <UniqueIdentifier>{af98fe8e-ce25-437a-8ab9-efa9d8f0a5b0}</UniqueIdentifier>
     </Filter>
     <Filter Include="PSVita\Iggy">
       <UniqueIdentifier>{9a61fbe5-f9a2-4c83-b407-5a295808664e}</UniqueIdentifier>
@@ -767,12 +725,6 @@
     </None>
     <None Include="Xbox\xex-dev.xml">
       <Filter>Xbox\xexxml</Filter>
-    </None>
-    <None Include="Xbox\Sentient\MinecraftTelemetry.xml">
-      <Filter>Xbox\Source Files\Sentient\Telemetry</Filter>
-    </None>
-    <None Include="Xbox\Sentient\trialConfigv1.bin">
-      <Filter>Xbox\Source Files\Sentient\DynamicConf</Filter>
     </None>
     <None Include="ClassDiagram.cd" />
     <None Include="Windows64\GameConfig\Minecraft.gameconfig">
@@ -1558,113 +1510,11 @@
     <ClInclude Include="Xbox\XML\ATGXmlParser.h">
       <Filter>Xbox\XML</Filter>
     </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientAvatar.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientBoxArt.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientConfig.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientCore.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientCulture.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientCultureBackCompat_SenBoxArt.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientCultureBackCompat_SenClientUGC.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientCultureBackCompat_SenCore.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientCultureBackCompat_SenNews.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientCultureBackCompat_SenSuperstars.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientDynamicConfig.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientFame.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientFile.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientHelp.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientMain.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientMarkers.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientNews.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientPackage.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientRawData.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientResource.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientStats.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientSuperstars.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientSys.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientTypes.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientUGC.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientUGCLeaderboards.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientUGCTypes.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientUser.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientUtil.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\Include\SenClientXML.h">
-      <Filter>Xbox\SentientLibs\inc</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\SentientStats.h">
-      <Filter>Xbox\Source Files\Sentient\Telemetry</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\TelemetryEnum.h">
-      <Filter>Xbox\Source Files\Sentient\Telemetry</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\MinecraftTelemetry.h">
-      <Filter>Xbox\Source Files\Sentient\Telemetry</Filter>
-    </ClInclude>
     <ClInclude Include="Common\XUI\XUI_SettingsAll.h">
       <Filter>Xbox\Source Files\XUI\Menu screens\Help &amp; Options\Settings</Filter>
     </ClInclude>
     <ClInclude Include="Common\XUI\XUI_Ctrl_4JIcon.h">
       <Filter>Xbox\Source Files\XUI\Controls</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\DynamicConfigurations.h">
-      <Filter>Xbox\Source Files\Sentient\DynamicConf</Filter>
     </ClInclude>
     <ClInclude Include="Common\XUI\XUI_LoadSettings.h">
       <Filter>Xbox\Source Files\XUI\Menu screens</Filter>
@@ -1695,12 +1545,6 @@
     </ClInclude>
     <ClInclude Include="PistonPieceRenderer.h">
       <Filter>net\minecraft\client\renderer\tileentity</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\SentientManager.h">
-      <Filter>Xbox\Source Files\Sentient</Filter>
-    </ClInclude>
-    <ClInclude Include="Xbox\Sentient\SentientTelemetryCommon.h">
-      <Filter>Xbox\Source Files\Sentient\Telemetry</Filter>
     </ClInclude>
     <ClInclude Include="Common\XUI\XUI_SettingsOptions.h">
       <Filter>Xbox\Source Files\XUI\Menu screens\Help &amp; Options\Settings</Filter>
@@ -2074,26 +1918,8 @@
     <ClInclude Include="Common\Tutorial\LookAtTileHint.h">
       <Filter>Common\Source Files\Tutorial\Hints</Filter>
     </ClInclude>
-    <ClInclude Include="Durango\Sentient\MinecraftTelemetry.h">
-      <Filter>Durango\Source Files\Sentient</Filter>
-    </ClInclude>
-    <ClInclude Include="Durango\Sentient\SentientTelemetryCommon.h">
-      <Filter>Durango\Source Files\Sentient</Filter>
-    </ClInclude>
-    <ClInclude Include="Durango\Sentient\TelemetryEnum.h">
-      <Filter>Durango\Source Files\Sentient</Filter>
-    </ClInclude>
-    <ClInclude Include="Durango\Sentient\SentientStats.h">
-      <Filter>Durango\Source Files\Sentient</Filter>
-    </ClInclude>
-    <ClInclude Include="Durango\Sentient\SentientManager.h">
-      <Filter>Durango\Source Files\Sentient</Filter>
-    </ClInclude>
     <ClInclude Include="Durango\XML\ATGXmlParser.h">
       <Filter>Durango\XML</Filter>
-    </ClInclude>
-    <ClInclude Include="Durango\Sentient\DynamicConfigurations.h">
-      <Filter>Durango\Source Files\Sentient</Filter>
     </ClInclude>
     <ClInclude Include="Durango\Social\SocialManager.h">
       <Filter>Durango\Source Files\Social</Filter>
@@ -2121,24 +1947,6 @@
     </ClInclude>
     <ClInclude Include="PS3\Social\SocialManager.h">
       <Filter>PS3\Source Files\Social</Filter>
-    </ClInclude>
-    <ClInclude Include="PS3\Sentient\DynamicConfigurations.h">
-      <Filter>PS3\Source Files\Sentient</Filter>
-    </ClInclude>
-    <ClInclude Include="PS3\Sentient\MinecraftTelemetry.h">
-      <Filter>PS3\Source Files\Sentient</Filter>
-    </ClInclude>
-    <ClInclude Include="PS3\Sentient\SentientManager.h">
-      <Filter>PS3\Source Files\Sentient</Filter>
-    </ClInclude>
-    <ClInclude Include="PS3\Sentient\SentientStats.h">
-      <Filter>PS3\Source Files\Sentient</Filter>
-    </ClInclude>
-    <ClInclude Include="PS3\Sentient\SentientTelemetryCommon.h">
-      <Filter>PS3\Source Files\Sentient</Filter>
-    </ClInclude>
-    <ClInclude Include="PS3\Sentient\TelemetryEnum.h">
-      <Filter>PS3\Source Files\Sentient</Filter>
     </ClInclude>
     <ClInclude Include="PS3\Minecraft_Macros.h">
       <Filter>PS3\Source Files</Filter>
@@ -2335,24 +2143,6 @@
     <ClInclude Include="Windows64\Social\SocialManager.h">
       <Filter>Windows64\Source Files\Social</Filter>
     </ClInclude>
-    <ClInclude Include="Windows64\Sentient\DynamicConfigurations.h">
-      <Filter>Windows64\Source Files\Sentient</Filter>
-    </ClInclude>
-    <ClInclude Include="Windows64\Sentient\MinecraftTelemetry.h">
-      <Filter>Windows64\Source Files\Sentient</Filter>
-    </ClInclude>
-    <ClInclude Include="Windows64\Sentient\SentientManager.h">
-      <Filter>Windows64\Source Files\Sentient</Filter>
-    </ClInclude>
-    <ClInclude Include="Windows64\Sentient\SentientStats.h">
-      <Filter>Windows64\Source Files\Sentient</Filter>
-    </ClInclude>
-    <ClInclude Include="Windows64\Sentient\SentientTelemetryCommon.h">
-      <Filter>Windows64\Source Files\Sentient</Filter>
-    </ClInclude>
-    <ClInclude Include="Windows64\Sentient\TelemetryEnum.h">
-      <Filter>Windows64\Source Files\Sentient</Filter>
-    </ClInclude>
     <ClInclude Include="Windows64\Resource.h">
       <Filter>Windows64</Filter>
     </ClInclude>
@@ -2400,24 +2190,6 @@
     </ClInclude>
     <ClInclude Include="Orbis\OrbisExtras\OrbisMaths.h">
       <Filter>Orbis\OrbisExtras</Filter>
-    </ClInclude>
-    <ClInclude Include="Orbis\Sentient\DynamicConfigurations.h">
-      <Filter>Orbis\Source Files\Sentient</Filter>
-    </ClInclude>
-    <ClInclude Include="Orbis\Sentient\MinecraftTelemetry.h">
-      <Filter>Orbis\Source Files\Sentient</Filter>
-    </ClInclude>
-    <ClInclude Include="Orbis\Sentient\SentientManager.h">
-      <Filter>Orbis\Source Files\Sentient</Filter>
-    </ClInclude>
-    <ClInclude Include="Orbis\Sentient\SentientStats.h">
-      <Filter>Orbis\Source Files\Sentient</Filter>
-    </ClInclude>
-    <ClInclude Include="Orbis\Sentient\SentientTelemetryCommon.h">
-      <Filter>Orbis\Source Files\Sentient</Filter>
-    </ClInclude>
-    <ClInclude Include="Orbis\Sentient\TelemetryEnum.h">
-      <Filter>Orbis\Source Files\Sentient</Filter>
     </ClInclude>
     <ClInclude Include="Orbis\Social\SocialManager.h">
       <Filter>Orbis\Source Files\Social</Filter>
@@ -3445,24 +3217,6 @@
     <ClInclude Include="PSVita\PSVita_App.h">
       <Filter>PSVita</Filter>
     </ClInclude>
-    <ClInclude Include="PSVita\Sentient\DynamicConfigurations.h">
-      <Filter>PSVita\Source Files\Sentient</Filter>
-    </ClInclude>
-    <ClInclude Include="PSVita\Sentient\MinecraftTelemetry.h">
-      <Filter>PSVita\Source Files\Sentient</Filter>
-    </ClInclude>
-    <ClInclude Include="PSVita\Sentient\SentientManager.h">
-      <Filter>PSVita\Source Files\Sentient</Filter>
-    </ClInclude>
-    <ClInclude Include="PSVita\Sentient\SentientStats.h">
-      <Filter>PSVita\Source Files\Sentient</Filter>
-    </ClInclude>
-    <ClInclude Include="PSVita\Sentient\SentientTelemetryCommon.h">
-      <Filter>PSVita\Source Files\Sentient</Filter>
-    </ClInclude>
-    <ClInclude Include="PSVita\Sentient\TelemetryEnum.h">
-      <Filter>PSVita\Source Files\Sentient</Filter>
-    </ClInclude>
     <ClInclude Include="PSVita\Social\SocialManager.h">
       <Filter>PSVita\Source Files\Social</Filter>
     </ClInclude>
@@ -3489,12 +3243,6 @@
     </ClInclude>
     <ClInclude Include="Durango\Leaderboards\DurangoStatsDebugger.h">
       <Filter>Durango\Source Files\Leaderboards</Filter>
-    </ClInclude>
-    <ClInclude Include="Common\Telemetry\TelemetryManager.h">
-      <Filter>Common\Source Files\Telemetry</Filter>
-    </ClInclude>
-    <ClInclude Include="Durango\Sentient\DurangoTelemetry.h">
-      <Filter>Durango\Source Files\Sentient</Filter>
     </ClInclude>
     <ClInclude Include="Durango\ServiceConfig\Events-XBLA.8-149E11AEEvents.h">
       <Filter>Durango\ServiceConfig</Filter>
@@ -4428,17 +4176,11 @@
     <ClCompile Include="Xbox\XML\ATGXmlParser.cpp">
       <Filter>Xbox\XML</Filter>
     </ClCompile>
-    <ClCompile Include="Xbox\Sentient\SentientStats.cpp">
-      <Filter>Xbox\Source Files\Sentient\Telemetry</Filter>
-    </ClCompile>
     <ClCompile Include="Common\XUI\XUI_SettingsAll.cpp">
       <Filter>Xbox\Source Files\XUI\Menu screens\Help &amp; Options\Settings</Filter>
     </ClCompile>
     <ClCompile Include="Common\XUI\XUI_Ctrl_4JIcon.cpp">
       <Filter>Xbox\Source Files\XUI\Controls</Filter>
-    </ClCompile>
-    <ClCompile Include="Xbox\Sentient\DynamicConfigurations.cpp">
-      <Filter>Xbox\Source Files\Sentient\DynamicConf</Filter>
     </ClCompile>
     <ClCompile Include="Common\XUI\XUI_LoadSettings.cpp">
       <Filter>Xbox\Source Files\XUI\Menu screens</Filter>
@@ -4457,9 +4199,6 @@
     </ClCompile>
     <ClCompile Include="Common\XUI\XUI_DebugTips.cpp">
       <Filter>Xbox\Source Files\XUI\Menu screens\Debug</Filter>
-    </ClCompile>
-    <ClCompile Include="Xbox\Sentient\SentientManager.cpp">
-      <Filter>Xbox\Source Files\Sentient</Filter>
     </ClCompile>
     <ClCompile Include="Common\XUI\XUI_SkinSelect.cpp">
       <Filter>Xbox\Source Files\XUI\Menu screens\Help &amp; Options\Settings</Filter>
@@ -5667,12 +5406,6 @@
     <ClCompile Include="Durango\Leaderboards\DurangoStatsDebugger.cpp">
       <Filter>Durango\Source Files\Leaderboards</Filter>
     </ClCompile>
-    <ClCompile Include="Common\Telemetry\TelemetryManager.cpp">
-      <Filter>Common\Source Files\Telemetry</Filter>
-    </ClCompile>
-    <ClCompile Include="Durango\Sentient\DurangoTelemetry.cpp">
-      <Filter>Durango\Source Files\Sentient</Filter>
-    </ClCompile>
     <ClCompile Include="Common\UI\UIFontData.cpp">
       <Filter>Common\Source Files\UI</Filter>
     </ClCompile>
@@ -6191,11 +5924,6 @@
     <Library Include="PSVita\4JLibs\libs\libSceNpToolkitUtils_rtti_dbg.a">
       <Filter>PSVita\4JLibs\libs</Filter>
     </Library> -->
-  </ItemGroup>
-  <ItemGroup>
-    <Xsd Include="Xbox\Sentient\SentientStats.xsd">
-      <Filter>Xbox\SentientLibs</Filter>
-    </Xsd>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Xbox\MinecraftWindows.ico">

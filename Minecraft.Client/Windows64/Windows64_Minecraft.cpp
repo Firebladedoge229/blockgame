@@ -36,7 +36,6 @@
 //#include "NetworkManager.h"
 #include "..\..\Minecraft.Client\Tesselator.h"
 #include "..\..\Minecraft.Client\Options.h"
-#include "Sentient\SentientManager.h"
 #include "..\..\Minecraft.World\IntCache.h"
 #include "..\Textures.h"
 #include "..\Settings.h"
@@ -1447,13 +1446,6 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 		// Tick the social networking manager.
 		PIXBeginNamedEvent(0,"Social network manager tick");
 		//		CSocialManager::Instance()->Tick();
-		PIXEndNamedEvent();
-
-		// Tick sentient.
-		PIXBeginNamedEvent(0,"Sentient tick");
-		MemSect(37);
-		//		SentientManager.Tick();
-		MemSect(0);
 		PIXEndNamedEvent();
 
 		PIXBeginNamedEvent(0,"Network manager do work #1");

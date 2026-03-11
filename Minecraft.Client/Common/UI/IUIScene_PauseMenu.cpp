@@ -65,8 +65,6 @@ int IUIScene_PauseMenu::ExitGameSaveDialogReturned(void *pParam,int iPad,C4JStor
 
 					app.GetDLCFullOfferIDForPackID(pDLCTexPack->getDLCParentPackId(),&ullOfferID_Full);
 
-					// tell sentient about the upsell of the full version of the skin pack
-					TelemetryManager->RecordUpsellPresented(iPad, eSet_UpsellID_Texture_DLC, ullOfferID_Full & 0xFFFFFFFF);
 #endif
 
 					UINT uiIDA[2];
@@ -341,7 +339,7 @@ int IUIScene_PauseMenu::WarningTrialTexturePackReturned(void *pParam,int iPad,C4
 	}
 	else
 	{
-		TelemetryManager->RecordUpsellResponded(iPad, eSet_UpsellID_Texture_DLC, ( pScene->m_pDLCPack->getPurchaseOfferId() & 0xFFFFFFFF ), eSen_UpsellOutcome_Declined);
+		// intentionally left empty
 	}
 #endif
 
@@ -626,8 +624,6 @@ void IUIScene_PauseMenu::_ExitWorld(LPVOID lpParameter)
 		Sleep(1);
 	}
 	pMinecraft->setLevel(NULL,exitReasonStringId,nullptr,saveStats);
-
-	TelemetryManager->Flush();
 	
 	app.m_gameRules.unloadCurrentGameRules();
 	//app.m_Audio.unloadCurrentAudioDetails();

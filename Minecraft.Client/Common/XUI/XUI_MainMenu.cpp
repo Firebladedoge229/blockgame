@@ -1220,7 +1220,6 @@ void CScene_Main::RunUnlockOrDLC(int iPad)
 			// If the player was signed in before selecting play, we'll not have read the profile yet, so query the sign-in status to get this to happen
 			ProfileManager.QuerySigninStatus();
 
-			TelemetryManager->RecordUpsellPresented(iPad, eSen_UpsellID_Full_Version_Of_Game, app.m_dwOfferID);
 			ProfileManager.DisplayFullVersionPurchase(false,iPad,eSen_UpsellID_Full_Version_Of_Game);
 		}
 	}

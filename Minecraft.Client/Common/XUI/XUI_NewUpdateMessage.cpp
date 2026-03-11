@@ -25,8 +25,6 @@ HRESULT CScene_NewUpdateMessage::OnInit( XUIMessageInit* pInitData, BOOL& bHandl
 	m_HTMLText.SetText(wsText.c_str());
 	m_HTMLText.SetShow(TRUE);
 
-	TelemetryManager->RecordMenuShown(m_iPad, eUIScene_NewUpdateMessage, 0); 
-
 	return S_OK;
 }
 

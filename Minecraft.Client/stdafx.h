@@ -247,6 +247,7 @@ typedef XUID GameSessionUID;
 #elif defined _DURANGO
 	#include "DurangoMedia\strings.h"
 	#include "Durango\Durango_App.h"
+	#include "Durango\TelemetryEnum.h"
 	#include "Durango\PresenceIds.h"
 	#include "DurangoMedia\4J_strings.h"
 	#include "Durango\XML\ATGXmlParser.h"

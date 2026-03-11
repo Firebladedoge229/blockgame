@@ -204,6 +204,7 @@ void MemSect(int sect);
 #elif defined _DURANGO
 #include "..\Minecraft.Client\Durango\Durango_App.h"
 #include "..\Minecraft.Client\DurangoMedia\strings.h"
+#include "..\Minecraft.Client\Durango\TelemetryEnum.h"
 
 #elif defined _WINDOWS64
 #include "..\Minecraft.Client\Windows64\Windows64_App.h"

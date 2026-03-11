@@ -57,7 +57,19 @@
 #include "..\Minecraft.World\CommonStats.h"
 #endif
 
-
+#if defined(_XBOX)
+#include "Xbox/TelemetryEnum.h"
+#elif defined(_DURANGO)
+#include "Durango/TelemetryEnum.h"
+#elif defined(ORBIS)
+#include "Orbis/TelemetryEnum.h"
+#elif defined(_PSVITA) || defined(__PSVITA__)
+#include "PSVita/TelemetryEnum.h"
+#elif defined(_WINDOWS64)
+#include "Windows64/TelemetryEnum.h"
+#else
+#include "PS3/TelemetryEnum.h"
+#endif
 
 LocalPlayer::LocalPlayer(Minecraft *minecraft, Level *level, User *user, int dimension) : Player(level, user->name)
 {

@@ -9,20 +9,18 @@
 
 #include "HorseChoiceTask.h"
 
-#if defined(XBOX)
+#if defined(_XBOX)
 #include "Xbox/TelemetryEnum.h"
-#elif defined(DURANGO)
+#elif defined(_DURANGO)
 #include "Durango/TelemetryEnum.h"
 #elif defined(ORBIS)
 #include "Orbis/TelemetryEnum.h"
-#elif defined(PS3)
-#include "PS3/TelemetryEnum.h"
-#elif defined(PSVITA)
+#elif defined(_PSVITA) || defined(__PSVITA__)
 #include "PSVita/TelemetryEnum.h"
-#elif defined(WINDOWS)
+#elif defined(_WINDOWS64)
 #include "Windows64/TelemetryEnum.h"
 #else
-#error "Platform not supported"
+#include "PS3/TelemetryEnum.h"
 #endif
 
 HorseChoiceTask::HorseChoiceTask(Tutorial *tutorial, int iDescHorse, int iDescDonkey, int iDescMule, int iPromptId,

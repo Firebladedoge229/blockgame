@@ -2,6 +2,21 @@
 #include "..\Minecraft.World\SmoothFloat.h"
 #include "..\Minecraft.World\net.minecraft.world.entity.player.h"
 #include "..\Minecraft.World\Pos.h"
+#if defined(XBOX)
+#include "Xbox/TelemetryEnum.h"
+#elif defined(DURANGO)
+#include "Durango/TelemetryEnum.h"
+#elif defined(ORBIS)
+#include "Orbis/TelemetryEnum.h"
+#elif defined(PS3)
+#include "PS3/TelemetryEnum.h"
+#elif defined(PSVITA)
+#include "PSVita/TelemetryEnum.h"
+#elif defined(WINDOWS)
+#include "Windows64/TelemetryEnum.h"
+#else
+#error "Platform not supported"
+#endif
 class Level;
 class User;
 class CompoundTag;
